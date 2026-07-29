@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.ChaoticBehaviorSolutionsDifferenceEquationsFoundation.TopologicalTransitivity
+import HautevilleHouse.ChaoticBehaviorSolutionsDifferenceEquationsFoundation.DensePeriodicPoints
+import HautevilleHouse.ChaoticBehaviorSolutionsDifferenceEquationsFoundation.SensitiveDependence
+
+namespace HautevilleHouse
+namespace ChaoticBehaviorSolutionsDifferenceEquationsFoundation
+
+structure DevaneyChaosPackage (D : DifferenceEquationFoundation) where
+  transitivity : TopologicalTransitivityPackage D
+  densePeriodic : DensePeriodicPointsPackage D
+  sensitivity : SensitiveDependencePackage D
+  devaneyEvidence : topologicalTransitivityClosed transitivity ∧ densePeriodicPointsClosed densePeriodic ∧ sensitiveDependenceClosed sensitivity
+
+def devaneyChaosClosed {D : DifferenceEquationFoundation} (C : DevaneyChaosPackage D) : Prop :=
+  C.devaneyEvidence
+
+end ChaoticBehaviorSolutionsDifferenceEquationsFoundation
+end HautevilleHouse
